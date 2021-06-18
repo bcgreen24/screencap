@@ -13,7 +13,7 @@ namespace screenCap
         private Form frmOverlay = new Overlay();
 
         private KeyHandler ghk;
-        private int counter = 1;
+
 
         public frmScreenCapMain()
         {
@@ -35,7 +35,7 @@ namespace screenCap
         private void btnTakeScreenshot_Click(object sender, EventArgs e)
         {
             //CaptureScreen();
-           
+            //            this.imageDisplay.Image = img;
         }
 
         private void CaptureScreen()
@@ -55,12 +55,7 @@ namespace screenCap
 
                 frmOverlay.Show();
 
-                ScreenCapture sc = new ScreenCapture();
-                 Image img = sc.CaptureScreen();
-                 this.imageDisplay.Image = img;
-                 //change this path to user selected folder
-                 sc.CaptureScreenToFile(@"c:\Users\Bryan Green\Pictures\capture" + counter.ToString() + ".jpg", ImageFormat.Jpeg);
-                 counter++;
+
 
             }
             catch (Exception ex)

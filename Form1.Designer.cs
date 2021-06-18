@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScreenCapMain));
             this.btnTakeScreenshot = new System.Windows.Forms.Button();
             this.imageDisplay = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageDisplay)).BeginInit();
@@ -59,9 +60,11 @@
             this.ClientSize = new System.Drawing.Size(337, 337);
             this.Controls.Add(this.imageDisplay);
             this.Controls.Add(this.btnTakeScreenshot);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmScreenCapMain";
             this.Text = "screenCap";
             this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)(this.imageDisplay)).EndInit();
             this.ResumeLayout(false);
 

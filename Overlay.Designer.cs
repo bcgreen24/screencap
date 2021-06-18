@@ -35,13 +35,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1511, 917);
+            this.ControlBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Overlay";
             this.Opacity = 0.24D;
-            this.Text = "Overlay";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Overlay_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseDown_1);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseUp);
             this.ResumeLayout(false);
 
