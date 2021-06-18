@@ -65,8 +65,9 @@ namespace screenCap
                 captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
                 captureBitmap.Save(@"c:\Users\Bryan Green\Pictures\capture" + counter.ToString() + ".jpg", ImageFormat.Jpeg);
                 counter++;
-                this.Opacity = 20.0;
+                this.Opacity = 0.2;
                 this.Hide();
+
             }
             catch (Exception ex)
             {
