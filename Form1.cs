@@ -8,6 +8,7 @@ namespace screenCap
     {
         private Form frmOverlay = new Overlay();
         private KeyHandler ghk;
+        private string strCaptureDirectory;
 
         public frmScreenCapMain()
         {
@@ -35,6 +36,17 @@ namespace screenCap
                 HandleHotKey();
             }
             base.WndProc(ref m);
+        }
+
+        private void btnGetCaptureDirectory_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dlgBrowser = new FolderBrowserDialog();
+            DialogResult result = dlgBrowser.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                this.txtCaptureDirectory.Text = dlgBrowser.SelectedPath;
+                this.strCaptureDirectory = dlgBrowser.SelectedPath;
+            }
         }
     }
 
