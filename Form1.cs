@@ -1,62 +1,26 @@
-﻿using ScreenShot;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-// using Gma.System.MouseKeyHook;
 
 namespace screenCap
 {
     public partial class frmScreenCapMain : Form
     {
         private Form frmOverlay = new Overlay();
-
         private KeyHandler ghk;
-
 
         public frmScreenCapMain()
         {
             InitializeComponent();
             ghk = new KeyHandler(Keys.F6, this);
             ghk.Register();
-            //Hook.GlobalEvents().MouseDragStarted += async(sender, e) =>
-            //{
-                
-            //    Console.WriteLine(e.X.ToString() + " - " + e.Y.ToString());
-            //};
-            //Hook.GlobalEvents().MouseDragFinished += async (sender, e) =>
-            //{
-            //    Console.WriteLine(e.X.ToString() + " - " + e.Y.ToString());
-            //};
-
-        }
-
-        private void btnTakeScreenshot_Click(object sender, EventArgs e)
-        {
-            //CaptureScreen();
-            //            this.imageDisplay.Image = img;
-        }
-
-        private void CaptureScreen()
-        {
-            HandleHotKey();
-        }
-
-        private void frmOverlay_MouseDown(object sender, MouseEventArgs e)
-        {
-            Console.WriteLine("Mouse Down");
         }
 
         private void HandleHotKey()
         {
             try
             {
-
                 frmOverlay.Show();
-
-
-
             }
             catch (Exception ex)
             {
@@ -70,10 +34,10 @@ namespace screenCap
             {
                 HandleHotKey();
             }
-
             base.WndProc(ref m);
         }
     }
+
     public class KeyHandler
     {
         [DllImport("user32.dll")]

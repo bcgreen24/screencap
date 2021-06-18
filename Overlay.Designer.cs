@@ -44,7 +44,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Overlay_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseDown_1);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Overlay_MouseUp);

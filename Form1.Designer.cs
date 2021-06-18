@@ -42,7 +42,6 @@
             this.btnTakeScreenshot.TabIndex = 0;
             this.btnTakeScreenshot.Text = "&Take Screenshot";
             this.btnTakeScreenshot.UseVisualStyleBackColor = true;
-            this.btnTakeScreenshot.Click += new System.EventHandler(this.btnTakeScreenshot_Click);
             // 
             // imageDisplay
             // 
