@@ -15,16 +15,24 @@ namespace screenCap
         private bool _canDraw;
         private int _startX, _startY;
         private Rectangle _rect;
-
+        private bool paint;
+        public string strSavePath;
         public Overlay()
         {
             InitializeComponent();
             scalingFactor = Screen.PrimaryScreen.Bounds.Width / SystemParameters.PrimaryScreenWidth;
         }
 
+        private void setSavePath(string path)
+        {
+            this.strSavePath = path;
+        }
+
         private void Overlay_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (!_canDraw) return;
+            
             int x = Math.Min(_startX, e.X);
             int y = Math.Min(_startY, e.Y);
             int width = Math.Max(_startX, e.X) - Math.Min(_startX, e.X);
@@ -35,14 +43,19 @@ namespace screenCap
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            using (Pen pen = new Pen(Color.Red, 4))
+            if (paint)
             {
-                e.Graphics.DrawRectangle(pen, _rect);
+                using (Pen pen = new Pen(Color.Red, 4))
+                {
+                    e.Graphics.DrawRectangle(pen, _rect);
+                }
             }
+            
         }
 
         private void Overlay_MouseDown_1(object sender, MouseEventArgs e)
         {
+            this.paint = true;
             _canDraw = true;
             _startX = e.X;
             _startY = e.Y;
@@ -55,6 +68,7 @@ namespace screenCap
         {
             try
             {
+                this.paint = false;
                 this.Opacity = 0.0;
                 _canDraw = false;
                 this.bbx = (e.Location.X - this.x) * scalingFactor;
@@ -63,11 +77,11 @@ namespace screenCap
                 Rectangle captureRectangle = new Rectangle(this.x, this.y, Convert.ToInt32(bbx), Convert.ToInt32(bby));
                 Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                 captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
-                captureBitmap.Save(@"c:\Users\Bryan Green\Pictures\capture" + counter.ToString() + ".jpg", ImageFormat.Jpeg);
+                Console.WriteLine(this.strSavePath);
+                captureBitmap.Save(this.strSavePath + "\\capture" + counter.ToString() + ".jpg", ImageFormat.Jpeg);
                 counter++;
                 this.Opacity = 0.2;
                 this.Hide();
-
             }
             catch (Exception ex)
             {

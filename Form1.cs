@@ -6,22 +6,27 @@ namespace screenCap
 {
     public partial class frmScreenCapMain : Form
     {
-        private Form frmOverlay = new Overlay();
+
         private KeyHandler ghk;
         private string strCaptureDirectory;
+        Overlay frmOverlay = new Overlay();
 
         public frmScreenCapMain()
         {
             InitializeComponent();
             ghk = new KeyHandler(Keys.F6, this);
             ghk.Register();
+            this.strCaptureDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            this.txtCaptureDirectory.Text = this.strCaptureDirectory;
         }
 
         private void HandleHotKey()
         {
             try
             {
+                frmOverlay.strSavePath = this.strCaptureDirectory;
                 frmOverlay.Show();
+                
             }
             catch (Exception ex)
             {

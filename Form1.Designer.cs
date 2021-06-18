@@ -59,6 +59,7 @@
             // 
             this.txtCaptureDirectory.Location = new System.Drawing.Point(12, 94);
             this.txtCaptureDirectory.Name = "txtCaptureDirectory";
+            this.txtCaptureDirectory.ReadOnly = true;
             this.txtCaptureDirectory.Size = new System.Drawing.Size(242, 20);
             this.txtCaptureDirectory.TabIndex = 2;
             // 
