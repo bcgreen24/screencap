@@ -24,7 +24,7 @@ namespace screenCap
 
         private void Overlay_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("HEllo");
+
         }
 
         private void Overlay_MouseDown_1(object sender, MouseEventArgs e)
